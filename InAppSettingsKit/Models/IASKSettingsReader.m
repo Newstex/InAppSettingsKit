@@ -238,6 +238,10 @@
     // Settings.bundle/FILE.inApp.plist
     // Settings.bundle/FILE~DEVICE.plist
     // Settings.bundle/FILE.plist
+    // FILE~DEVICE.inApp.plist
+    // FILE.inApp.plist
+    // FILE~DEVICE.plist
+    // FILE.plist
     //
     // where DEVICE is either "iphone" or "ipad" depending on the current
     // interface idiom.
@@ -250,7 +254,7 @@
     // - This implementation uses the device suffixes on iOS 3.x as well.
     // - also check current locale (short only)
     
-    NSArray *settingsBundleNames = @[kIASKBundleFolderAlt, kIASKBundleFolder];
+    NSArray *settingsBundleNames = @[kIASKBundleFolderAlt, kIASKBundleFolder, @""];
     
     NSArray *extensions = @[@".inApp.plist", @".plist"];
     
