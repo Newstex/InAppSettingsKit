@@ -790,14 +790,7 @@ CGRect IASKCGRectSwap(CGRect rect);
             }
             [mailViewController release];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle:NSLocalizedString(@"Mail not configured", @"InAppSettingsKit")
-                                  message:NSLocalizedString(@"This device is not configured for sending Email. Please configure the Mail settings in the Settings app.", @"InAppSettingsKit")
-                                  delegate: nil
-                                  cancelButtonTitle:NSLocalizedString(@"OK", @"InAppSettingsKit")
-                                  otherButtonTitles:nil];
-            [alert show];
-            [alert release];
+            [self presentMailNotConfiguredAlert];
         }
 
 	} else if ([[specifier type] isEqualToString:kIASKCustomViewSpecifier] && [self.delegate respondsToSelector:@selector(settingsViewController:tableView:didSelectCustomViewSpecifier:)]) {
@@ -834,6 +827,18 @@ CGRect IASKCGRectSwap(CGRect rect);
 #pragma clang diagnostic pop
         
     }
+}
+
+- (void)presentMailNotConfiguredAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:NSLocalizedString(@"Mail not configured", @"InAppSettingsKit")
+                          message:NSLocalizedString(@"This device is not configured for sending Email. Please configure the Mail settings in the Settings app.", @"InAppSettingsKit")
+                          delegate: nil
+                          cancelButtonTitle:NSLocalizedString(@"OK", @"InAppSettingsKit")
+                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
 }
 
 #pragma mark -
